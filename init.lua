@@ -1,4 +1,4 @@
--j These settings were started from Kickstart.nvim
+-- These settings were started from Kickstart.nvim
 
 require 'core.options'
 require 'core.keymaps'
