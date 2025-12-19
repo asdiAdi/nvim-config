@@ -43,11 +43,22 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
--- Resize with arrows
-vim.keymap.set('n', '<Up>', ':resize -2<CR>', opts())
-vim.keymap.set('n', '<Down>', ':resize +2<CR>', opts())
-vim.keymap.set('n', '<Left>', ':vertical resize -2<CR>', opts())
-vim.keymap.set('n', '<Right>', ':vertical resize +2<CR>', opts())
+-- BUFFERS
+vim.keymap.set('n', '<TAB>', '<cmd> bnext <CR>', { desc = 'Go to next buffer' })
+vim.keymap.set('n', '<S-TAB>', '<cmd> bprevious <CR>', { desc = 'Go to previous buffer' })
+vim.keymap.set('n', '<leader>tb', function()
+  if vim.o.showtabline == 0 then
+    vim.o.showtabline = 2
+  else
+    vim.o.showtabline = 0
+  end
+end, { desc = 'Toggle Bufferline' })
+
+vim.keymap.set('n', '<C-q>', function()
+  local prev = vim.fn.bufnr '#'
+  vim.cmd 'bnext'
+  vim.cmd('bdelete! ' .. prev)
+end, { desc = 'Close current buffer' })
 
 ---------------------------------------------------------------------------------------
 
@@ -65,12 +76,12 @@ vim.keymap.set('n', '<C-\\>', function()
 end, opts())
 
 -- CUSTOM
--- save file
-vim.keymap.set('n', '<C-s>', '<cmd> w <CR>', opts())
+-- save all files
+vim.keymap.set('n', '<C-s>', '<cmd> wall <CR>', opts())
 -- save file without auto-formatting
-vim.keymap.set('n', '<leader>sn', '<cmd>noautocmd w <CR>', opts())
--- quit file
-vim.keymap.set('n', '<C-q>', '<cmd> q <CR>', opts())
+-- vim.keymap.set('n', '<leader>sn', '<cmd>noautocmd w <CR>', opts())
+-- quit all files
+vim.keymap.set('n', '<leader>q', '<cmd> qall <CR>', { desc = '[Q]uit all files' })
 -- delete single character without copying into register
 vim.keymap.set('n', 'x', '"_x', opts())
 -- Vertical scroll and center
@@ -111,3 +122,9 @@ vim.keymap.set('v', '>', '>gv', opts())
 -- vim.keymap.set('n', '<leader>tx', ':tabclose<CR>', opts) -- close current tab
 -- vim.keymap.set('n', '<leader>tn', ':tabn<CR>', opts) --  go to next tab
 -- vim.keymap.set('n', '<leader>tp', ':tabp<CR>', opts) --  go to previous tab
+
+-- Resize with arrows
+-- vim.keymap.set('n', '<Up>', ':resize -2<CR>', opts())
+-- vim.keymap.set('n', '<Down>', ':resize +2<CR>', opts())
+-- vim.keymap.set('n', '<Left>', ':vertical resize -2<CR>', opts())
+-- vim.keymap.set('n', '<Right>', ':vertical resize +2<CR>', opts())

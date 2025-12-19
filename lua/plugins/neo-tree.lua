@@ -1,5 +1,4 @@
--- File Tree
--- https://github.com/nvim-neo-tree/neo-tree.nvim
+-- File Tree https://github.com/nvim-neo-tree/neo-tree.nvim
 
 return {
   'nvim-neo-tree/neo-tree.nvim',
