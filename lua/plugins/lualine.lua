@@ -13,6 +13,9 @@ return {
       sections = {
         lualine_b = { { 'filename', path = 1 } },
         lualine_c = {},
+        lualine_x = { 'lsp_status' },
+        lualine_y = { 'progress' },
+        lualine_z = { 'location' },
       },
       inactive_sections = {
         lualine_b = { { 'filename', path = 1 } },
@@ -23,7 +26,7 @@ return {
         lualine_a = { { 'buffers', mode = 4 } },
         -- lualine_b = { 'branch' },
         -- lualine_c = { 'filename' },
-        lualine_x = {},
+        lualine_x = { 'filetype' },
         lualine_y = { 'branch' },
         lualine_z = { { 'datetime', style = 'default' } },
       },
