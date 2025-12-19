@@ -23,6 +23,7 @@ require('lazy').setup({
   require 'plugins.theme',
   require 'plugins.neo-tree',
   require 'plugins.oil',
+  require 'plugins.bufferline',
   'NMAC427/guess-indent.nvim', -- Detect tabstop and shiftwidth automatically
 
   { -- Adds git related signs to the gutter, as well as utilities for managing changes

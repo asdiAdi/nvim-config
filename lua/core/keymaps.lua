@@ -21,7 +21,7 @@ end
 -- Clear highlights on search when pressing <Esc> in normal mode
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 -- Diagnostic keymaps
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+vim.keymap.set('n', '<leader>d', vim.diagnostic.setloclist, { desc = 'Open [D]iagnostic quickfix list' })
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.
@@ -94,12 +94,6 @@ vim.keymap.set('v', '>', '>gv', opts())
 -- vim.keymap.set("n", "<C-S-j>", "<C-w>J", { desc = "Move window to the lower" })
 -- vim.keymap.set("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })
 
--- Buffers
--- vim.keymap.set('n', '<C-Tab>', ':bnext<CR>', opts())
--- vim.keymap.set('n', '<S-Tab>', ':bprevious<CR>', opts())
--- vim.keymap.set('n', '<leader>x', ':bdelete!<CR>', opts()) -- close buffer
--- vim.keymap.set('n', '<leader>b', '<cmd> enew <CR>', opts()) -- new buffer
-
 -- Window management
 -- vim.keymap.set('n', '<leader>v', '<C-w>v', opts) -- split window vertically
 -- vim.keymap.set('n', '<leader>h', '<C-w>s', opts) -- split window horizontally
@@ -117,7 +111,3 @@ vim.keymap.set('v', '>', '>gv', opts())
 -- vim.keymap.set('n', '<leader>tx', ':tabclose<CR>', opts) -- close current tab
 -- vim.keymap.set('n', '<leader>tn', ':tabn<CR>', opts) --  go to next tab
 -- vim.keymap.set('n', '<leader>tp', ':tabp<CR>', opts) --  go to previous tab
-
--- Fast indent and unindent
--- vim.keymap.set('n', '<TAB>', '>>', opts())
--- vim.keymap.set('n', '<S-TAB>', '<<', opts())
