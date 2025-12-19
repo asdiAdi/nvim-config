@@ -39,6 +39,6 @@ vim.o.cursorline = true
 vim.o.scrolloff = 10
 
 -- Experimental Commands
-vim.opt.foldmethod = 'indent'
--- vim.o.foldexpr = 'nvim_treesitter#foldexper()'
+vim.opt.foldmethod = 'expr'
+vim.o.foldexpr = 'nvim_treesitter#foldexpr()'
 vim.o.foldlevelstart = 99

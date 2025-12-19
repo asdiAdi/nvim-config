@@ -55,7 +55,7 @@ vim.keymap.set('n', '<leader>tb', function()
 end, { desc = 'Toggle Bufferline' })
 
 vim.keymap.set('n', '<C-q>', function()
-  local prev = vim.fn.bufnr '#'
+  local prev = vim.api.nvim_get_current_buf()
   vim.cmd 'bnext'
   vim.cmd('bdelete! ' .. prev)
 end, { desc = 'Close current buffer' })

@@ -20,7 +20,7 @@ return {
       },
 
       tabline = {
-        lualine_a = { 'buffers' },
+        lualine_a = { { 'buffers', mode = 4 } },
         -- lualine_b = { 'branch' },
         -- lualine_c = { 'filename' },
         lualine_x = {},
