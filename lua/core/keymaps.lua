@@ -52,7 +52,7 @@ vim.keymap.set('n', '<leader>tb', function()
   else
     vim.o.showtabline = 0
   end
-end, { desc = 'Toggle Bufferline' })
+end, { desc = '[T]oggle [B]ufferline' })
 
 vim.keymap.set('n', '<C-q>', function()
   local prev = vim.api.nvim_get_current_buf()
@@ -74,6 +74,10 @@ vim.keymap.set('n', '<C-\\>', function()
   oil.close()
   vim.cmd 'Neotree reveal'
 end, opts())
+-- Indent Blank Lines (IBL)
+vim.keymap.set('n', '<leader>ti', function()
+  vim.cmd 'IBLToggle'
+end, opts { desc = '[T]oggle [I]BL' })
 
 -- CUSTOM
 -- save all files
@@ -91,7 +95,7 @@ vim.keymap.set('n', '<C-u>', '<C-u>zz', opts())
 vim.keymap.set('n', 'n', 'nzzzv', opts())
 vim.keymap.set('n', 'N', 'Nzzzv', opts())
 -- Toggle line wrapping
-vim.keymap.set('n', '<C-S-l>', '<cmd>set wrap!<CR>', opts())
+vim.keymap.set('n', '<leader>tl', '<cmd>set wrap!<CR>', opts { desc =  '[T]oggle [L]ine Wrap'  })
 -- Keep last yanked when pasting inside visual mode
 vim.keymap.set('v', 'p', '"_dP', opts())
 -- Stay in indent mode
@@ -128,3 +132,9 @@ vim.keymap.set('v', '>', '>gv', opts())
 -- vim.keymap.set('n', '<Down>', ':resize +2<CR>', opts())
 -- vim.keymap.set('n', '<Left>', ':vertical resize -2<CR>', opts())
 -- vim.keymap.set('n', '<Right>', ':vertical resize +2<CR>', opts())
+
+-- Re-sourcing config is not supported with lazy.nvim
+-- vim.keymap.set('n', '<leader>r', function()
+--   vim.cmd 'source $MYVIMRC'
+--   print 'Neovim config reloaded'
+-- end, opts { desc = 'Reload vim config' })

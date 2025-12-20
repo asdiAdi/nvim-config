@@ -24,9 +24,10 @@ vim.o.smartcase = true
 vim.o.signcolumn = 'yes'
 vim.o.updatetime = 250 -- Decrease update time
 vim.o.timeoutlen = 300 -- Decrease mapped sequence wait time
-vim.o.splitright = true
 vim.o.splitbelow = true
+vim.o.splitright = true
 vim.o.confirm = true
+vim.o.shortmess = 'ltToOCFsS'
 
 -- Sets how neovim will display certain whitespace characters in the editor.
 vim.o.list = true

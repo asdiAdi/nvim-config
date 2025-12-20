@@ -17,11 +17,10 @@ return {
     watch_for_changes = true,
     view_options = {
       show_hidden = true,
-      is_always_hidden = function(name, bufnr)
+      is_always_hidden = function(name)
         if name == '.git' or name == '.github' then
           return true
         end
-
         return false
       end,
     },
