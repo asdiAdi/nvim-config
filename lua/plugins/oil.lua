@@ -26,6 +26,10 @@ return {
     },
     keymaps = {
       ['\\'] = { 'actions.close', mode = 'n' },
+      ['<C-s>'] = false,
+      ['<C-h>'] = false,
+      ['<C-t>'] = false,
+      ['<C-p>'] = false,
     },
   },
   dependencies = { 'nvim-tree/nvim-web-devicons' },

@@ -33,13 +33,15 @@ require('lazy').setup {
   require 'plugins.which-key',
   require 'plugins.misc',
 
+  -- require 'plugins.debug',
+  -- require 'plugins.lint',
   { -- Autoformat
     'stevearc/conform.nvim',
     event = { 'BufWritePre' },
     cmd = { 'ConformInfo' },
     keys = {
       {
-        '<leader>f',
+        '<C-f>',
         function()
           require('conform').format { async = true, lsp_format = 'fallback' }
         end,
@@ -73,10 +75,4 @@ require('lazy').setup {
       },
     },
   },
-
-  -- require 'kickstart.plugins.debug',
-  -- require 'kickstart.plugins.lint',
 }
-
--- The line beneath this is called `modeline`. See `:help modeline`
--- vim: ts=2 sts=2 sw=2 et

@@ -33,15 +33,28 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' }
 -- TIP: Disable arrow keys in normal mode
 vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
 vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
-vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
 vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
+vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
 
 --  Keybinds to make split navigation easier.
---  Use CTRL+<hjkl> to switch between windows
+--  Use CTRL+<hjkl> or CTRL+<arrow keys> to switch between windows
 vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+vim.keymap.set('n', '<C-left>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
+vim.keymap.set('n', '<C-right>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
+vim.keymap.set('n', '<C-down>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
+vim.keymap.set('n', '<C-up>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+-- Moving windows
+vim.keymap.set('n', '<C-S-left>', '<C-w><S-h>', { desc = 'Move window to far left' })
+vim.keymap.set('n', '<C-S-right>', '<C-w><S-l>', { desc = 'Move window to far right' })
+vim.keymap.set('n', '<C-S-down>', '<C-w><S-j>', { desc = 'Move window to far bottom' })
+vim.keymap.set('n', '<C-S-up>', '<C-w><S-k>', { desc = 'Move window to far top' })
+vim.keymap.set('n', '<C-S-h>', '<C-w><S-h>', { desc = 'Move window to far left' })
+vim.keymap.set('n', '<C-S-l>', '<C-w><S-l>', { desc = 'Move window to far right' })
+vim.keymap.set('n', '<C-S-j>', '<C-w><S-j>', { desc = 'Move window to far bottom' })
+vim.keymap.set('n', '<C-S-k>', '<C-w><S-k>', { desc = 'Move window to far top' })
 
 -- BUFFERS
 vim.keymap.set('n', '<TAB>', '<cmd> bnext <CR>', { desc = 'Go to next buffer' })
@@ -95,7 +108,7 @@ vim.keymap.set('n', '<C-u>', '<C-u>zz', opts())
 vim.keymap.set('n', 'n', 'nzzzv', opts())
 vim.keymap.set('n', 'N', 'Nzzzv', opts())
 -- Toggle line wrapping
-vim.keymap.set('n', '<leader>tl', '<cmd>set wrap!<CR>', opts { desc =  '[T]oggle [L]ine Wrap'  })
+vim.keymap.set('n', '<leader>tl', '<cmd>set wrap!<CR>', opts { desc = '[T]oggle [L]ine Wrap' })
 -- Keep last yanked when pasting inside visual mode
 vim.keymap.set('v', 'p', '"_dP', opts())
 -- Stay in indent mode
