@@ -29,14 +29,36 @@ return {
     --
     -- Configure Telescope
     require('telescope').setup {
-      --  All the info you're looking for is in `:help telescope.setup()`
-      --
-      -- defaults = {
-      --   mappings = {
-      --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
-      --   },
-      -- },
-      -- pickers = {}
+      defaults = {
+        layout_strategy = 'horizontal',
+        -- Full Screen
+        -- layout_config = {
+        --   horizontal = {
+        --     prompt_position = 'bottom',
+        --     preview_width = 0.6,
+        --     width = { padding = 0 },
+        --     height = { padding = 0 },
+        --   },
+        -- },
+        mappings = {
+          i = {
+            ['<C-Down>'] = require('telescope.actions').cycle_history_next,
+            ['<C-Up>'] = require('telescope.actions').cycle_history_prev,
+          },
+        },
+      },
+
+      pickers = {
+        find_files = {
+          file_ignore_patterns = { 'node_modules', '.git', 'package-lock.json' },
+          hidden = true,
+        },
+      },
+      buffers = {
+        initial_mode = 'normal',
+        sort_lastused = true,
+      },
+
       extensions = {
         ['ui-select'] = {
           require('telescope.themes').get_dropdown(),
@@ -60,6 +82,15 @@ return {
     vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
     vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
     vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
+    -- git
+    vim.keymap.set('n', '<leader>gc', builtin.git_commits, { desc = '[C]heckout Commits' })
+    vim.keymap.set('n', '<leader>gb', builtin.git_bcommits, { desc = 'Checkout Commits for current [B]uffer' })
+    vim.keymap.set('n', '<leader>gs', builtin.git_status, { desc = '[C]heckout Commits' })
+    vim.keymap.set('n', '<leader>gs', builtin.stash, { desc = '[C]heckout Commits' })
+    -- OTHER INTERESTING BUILTINS
+    -- treesitter - shows all function, parameter etc in the opened buffer
+    -- git_status - search on modified files <Tab> to stage/unstage
+    -- git_stash - search on stashed items, enter to apply
 
     -- Slightly advanced example of overriding default behavior and theme
     vim.keymap.set('n', '<leader>/', function()
