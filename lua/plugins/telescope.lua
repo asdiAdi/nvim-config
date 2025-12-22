@@ -85,12 +85,10 @@ return {
     -- git
     vim.keymap.set('n', '<leader>gc', builtin.git_commits, { desc = '[C]heckout Commits' })
     vim.keymap.set('n', '<leader>gb', builtin.git_bcommits, { desc = 'Checkout Commits for current [B]uffer' })
-    vim.keymap.set('n', '<leader>gs', builtin.git_status, { desc = '[C]heckout Commits' })
-    vim.keymap.set('n', '<leader>gs', builtin.stash, { desc = '[C]heckout Commits' })
+    vim.keymap.set('n', '<leader>gd', builtin.git_status, { desc = 'Stage / Unstage Commits with [D]iff View' })
+    vim.keymap.set('n', '<leader>ga', builtin.git_stash, { desc = '[A]pply Stashes' })
     -- OTHER INTERESTING BUILTINS
     -- treesitter - shows all function, parameter etc in the opened buffer
-    -- git_status - search on modified files <Tab> to stage/unstage
-    -- git_stash - search on stashed items, enter to apply
 
     -- Slightly advanced example of overriding default behavior and theme
     vim.keymap.set('n', '<leader>/', function()
