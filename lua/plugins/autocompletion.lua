@@ -22,12 +22,12 @@ return { -- Autocompletion
         -- `friendly-snippets` contains a variety of premade snippets.
         --    See the README about individual language/framework/plugin snippets:
         --    https://github.com/rafamadriz/friendly-snippets
-        -- {
-        --   'rafamadriz/friendly-snippets',
-        --   config = function()
-        --     require('luasnip.loaders.from_vscode').lazy_load()
-        --   end,
-        -- },
+        {
+          'rafamadriz/friendly-snippets',
+          config = function()
+            require('luasnip.loaders.from_vscode').lazy_load()
+          end,
+        },
       },
       opts = {},
     },
@@ -59,11 +59,28 @@ return { -- Autocompletion
       --
       -- See :h blink-cmp-config-keymap for defining your own keymap
       preset = 'default',
+      ['<TAB>'] = { 'select_next', 'fallback' },
+      ['<s-TAB>'] = { 'select_prev', 'fallback' },
+      ['<CR>'] = { 'accept', select = true, 'fallback' },
+      ['<c-s-SPACE>'] = { 'show_signature', 'hide_signature', 'fallback' },
+      ['<c-j>'] = { 'scroll_documentation_down', 'fallback' },
+      ['<c-k>'] = { 'scroll_documentation_up', 'fallback' },
 
+      -- <c-l> will move you to the right of each of the expansion locations.
+      -- <c-h> is similar, except moving you backwards.
+      -- ['<C-l>'] = require('cmp').mapping(function()
+      --   if luasnip.expand_or_locally_jumpable() then
+      --     luasnip.expand_or_jump()
+      --   end
+      -- end, { 'i', 's' }),
+      -- ['<C-h>'] = require('cmp').mapping(function()
+      --   if luasnip.locally_jumpable(-1) then
+      --     luasnip.jump(-1)
+      --   end
+      -- end, { 'i', 's' }),
       -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
       --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
     },
-
     appearance = {
       -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
       -- Adjusts spacing to ensure icons are aligned
@@ -73,18 +90,23 @@ return { -- Autocompletion
     completion = {
       -- By default, you may press `<c-space>` to show the documentation.
       -- Optionally, set `auto_show = true` to show the documentation after a delay.
-      documentation = { auto_show = false, auto_show_delay_ms = 500 },
+      documentation = { auto_show = true, auto_show_delay_ms = 200 },
+
+      menu = {
+        draw = {
+          columns = { { 'label', 'label_description', gap = 1 }, { 'kind_icon', 'kind', gap = 1 }, { 'source_name' } },
+        },
+      },
     },
 
     sources = {
-      default = { 'lsp', 'path', 'snippets', 'lazydev' },
+      default = { 'lsp', 'path', 'snippets', 'lazydev', 'buffer' },
       providers = {
         lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
       },
     },
 
     snippets = { preset = 'luasnip' },
-
     -- Blink.cmp includes an optional, recommended rust fuzzy matcher,
     -- which automatically downloads a prebuilt binary when enabled.
     --
@@ -92,7 +114,11 @@ return { -- Autocompletion
     -- the rust implementation via `'prefer_rust_with_warning'`
     --
     -- See :h blink-cmp-config-fuzzy for more information
-    fuzzy = { implementation = 'lua' },
+    fuzzy = { implementation = 'lua', sorts = {
+      'exact',
+      'score',
+      'sort_text',
+    } },
 
     -- Shows a signature help window while you type arguments for a function
     signature = { enabled = true },

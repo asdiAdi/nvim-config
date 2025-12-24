@@ -53,14 +53,16 @@ return {
         map('n', '<leader>hu', gitsigns.stage_hunk, { desc = 'git [u]ndo stage hunk' })
         map('n', '<leader>hR', gitsigns.reset_buffer, { desc = 'git [R]eset buffer' })
         map('n', '<leader>hp', gitsigns.preview_hunk, { desc = 'git [p]review hunk' })
-        map('n', '<leader>hb', gitsigns.blame_line, { desc = 'git [b]lame line' })
-        map('n', '<leader>hd', gitsigns.diffthis, { desc = 'git [d]iff against index' })
-        map('n', '<leader>hD', function()
+
+        map('n', '<leader>gb', gitsigns.blame, { desc = '[G]it [b]lame' })
+        map('n', '<leader>gd', gitsigns.diffthis, { desc = '[d]iff against index (unstaged files)' })
+        map('n', '<leader>gD', function()
           gitsigns.diffthis '@'
-        end, { desc = 'git [D]iff against last commit' })
+        end, { desc = '[D]iff against last commit (with staged files)' })
         -- Toggles
         map('n', '<leader>tb', gitsigns.toggle_current_line_blame, { desc = '[T]oggle git show [b]lame line' })
         map('n', '<leader>tD', gitsigns.preview_hunk_inline, { desc = '[T]oggle git show [D]eleted' })
+        map('n', '<leader>tw', gitsigns.preview_hunk_inline, { desc = '[T]oggle [W]ord Diff' })
       end,
     },
   },

@@ -50,7 +50,7 @@ return {
 
       pickers = {
         find_files = {
-          file_ignore_patterns = { 'node_modules', '.git', 'package-lock.json' },
+          file_ignore_patterns = { 'node_modules/', '%.git/', 'package%-lock%.json' },
           hidden = true,
         },
       },
@@ -84,8 +84,8 @@ return {
     vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
     -- git
     vim.keymap.set('n', '<leader>gc', builtin.git_commits, { desc = '[C]heckout Commits' })
-    vim.keymap.set('n', '<leader>gb', builtin.git_bcommits, { desc = 'Checkout Commits for current [B]uffer' })
-    vim.keymap.set('n', '<leader>gd', builtin.git_status, { desc = 'Stage / Unstage Commits with [D]iff View' })
+    vim.keymap.set('n', '<leader>gB', builtin.git_bcommits, { desc = 'Checkout Commits for current [B]uffer' })
+    vim.keymap.set('n', '<leader>gu', builtin.git_status, { desc = 'Stage / Unstage Commits with [D]iff View' })
     vim.keymap.set('n', '<leader>ga', builtin.git_stash, { desc = '[A]pply Stashes' })
     -- OTHER INTERESTING BUILTINS
     -- treesitter - shows all function, parameter etc in the opened buffer

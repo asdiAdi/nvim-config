@@ -8,23 +8,8 @@ return {
     build = ':TSUpdate',
     main = 'nvim-treesitter.configs', -- Sets main module to use for opts
     opts = {
-      ensure_installed = {
-        'typescript',
-        'tsx',
-        'bash',
-        'c',
-        'diff',
-        'html',
-        'lua',
-        'luadoc',
-        'markdown',
-        'markdown_inline',
-        'query',
-        'vim',
-        'vimdoc',
-      },
       sync_install = true,
-      auto_install = false,
+      auto_install = true,
       highlight = {
         enable = true,
         -- Some langjjages depend on vim's regex highlighting system (such as Ruby) for indent rules.

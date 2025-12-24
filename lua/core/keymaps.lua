@@ -68,6 +68,7 @@ vim.keymap.set('n', '<leader>tb', function()
 end, { desc = '[T]oggle [B]ufferline' })
 
 vim.keymap.set('n', '<C-q>', function()
+  -- TODO: if filetype is help, gitsign_blame etc, just to normal quit
   local prev = vim.api.nvim_get_current_buf()
   vim.cmd 'bnext'
   vim.cmd('bdelete! ' .. prev)
