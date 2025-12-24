@@ -30,10 +30,9 @@ require('lazy').setup {
   require 'plugins.autocompletion',
   require 'plugins.autoformatting',
   require 'plugins.gitsigns',
-
   require 'plugins.which-key',
   require 'plugins.misc',
-
+  require 'plugins.lint',
+  require 'plugins.trouble',
   -- require 'plugins.debug',
-  -- require 'plugins.lint',
 }
