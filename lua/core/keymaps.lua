@@ -92,6 +92,8 @@ end, opts())
 vim.keymap.set('n', '<leader>ti', function()
   vim.cmd 'IBLToggle'
 end, opts { desc = '[T]oggle [I]BL' })
+-- Auto-Session
+vim.keymap.set('n', '<leader>o', '<cmd> AutoSession search <CR>', opts { desc = '[O]pen recent sessions' })
 
 -- CUSTOM
 -- save all files

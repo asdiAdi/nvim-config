@@ -28,6 +28,7 @@ return {
         hide_by_name = {
           '.git',
           '.github',
+          'node_modules',
         },
       },
 

@@ -13,12 +13,15 @@ return {
       'size',
       'mtime',
     },
+    preview_win = {
+      preview_method = 'load',
+    },
     delete_to_trash = true,
     watch_for_changes = true,
     view_options = {
       show_hidden = true,
       is_always_hidden = function(name)
-        if name == '.git' or name == '.github' then
+        if name == '.git' or name == '.github' or name == 'node_modules' then
           return true
         end
         return false

@@ -116,6 +116,7 @@ return {
         --
         -- This may be unwanted, since they displace some of your code
         if client and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf) then
+          vim.lsp.inlay_hint.enable(true)
           map('<leader>th', function()
             vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
           end, '[T]oggle Inlay [H]ints')
@@ -178,9 +179,38 @@ return {
       --    https://github.com/pmizio/typescript-tools.nvim
       --
       -- But for many setups, the LSP (`ts_ls`) will work just fine
-      -- ts_ls = {},
       --
 
+      -- ts_ls = {
+      --   settings = {
+      --     typescript = {
+      --       inlayHints = {
+      --         includeInlayEnumMemberValueHints = true,
+      --         includeInlayFunctionLikeReturnTypeHints = true,
+      --         includeInlayFunctionParameterTypeHints = true,
+      --         includeInlayParameterNameHints = 'all',
+      --         includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+      --         includeInlayPropertyDeclarationTypeHints = true,
+      --         includeInlayVariableTypeHints = true,
+      --         includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+      --       },
+      --     },
+      --     javascript = {
+      --       inlayHints = {
+      --         includeInlayEnumMemberValueHints = true,
+      --         includeInlayFunctionLikeReturnTypeHints = true,
+      --         includeInlayFunctionParameterTypeHints = true,
+      --         includeInlayParameterNameHints = 'all',
+      --         includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+      --         includeInlayPropertyDeclarationTypeHints = true,
+      --         includeInlayVariableTypeHints = true,
+      --         includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+      --       },
+      --     },
+      --   },
+      -- },
+
+      cssls = {},
       lua_ls = {
         -- cmd = { ... },
         -- filetypes = { ... },
@@ -195,6 +225,16 @@ return {
           },
         },
       },
+      bashls = {},
+
+      markdownlint = {},
+      jsonlint = {},
+      yamllint = {},
+      eslint_d = {},
+      shellcheck = {},
+
+      prettier = {},
+      prettierd = {},
     }
 
     -- Ensure the servers and tools above are installed
