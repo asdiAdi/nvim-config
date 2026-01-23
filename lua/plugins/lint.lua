@@ -4,7 +4,14 @@ return {
     'mfussenegger/nvim-lint',
     event = { 'BufReadPre', 'BufNewFile' },
     config = function()
+      local HOME = os.getenv 'HOME'
+
       local lint = require 'lint'
+      lint.linters.markdownlint = {
+        cmd = 'markdownlint',
+        args = { '--config', HOME .. '/.markdownlint.json', '--' },
+      }
+
       lint.linters_by_ft = {
         markdown = { 'markdownlint' },
         json = { 'jsonlint' },

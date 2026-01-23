@@ -181,6 +181,7 @@ return {
       -- But for many setups, the LSP (`ts_ls`) will work just fine
       --
 
+      -- ts_ls = {},
       -- ts_ls = {
       --   settings = {
       --     typescript = {
@@ -228,6 +229,16 @@ return {
       bashls = {},
 
       markdownlint = {},
+      harper_ls = {
+        settings = {
+          ['harper-ls'] = {
+            linters = {
+              SentenceCapitalization = false,
+              SpellCheck = false,
+            },
+          },
+        },
+      },
       jsonlint = {},
       yamllint = {},
       eslint_d = {},
@@ -236,6 +247,8 @@ return {
       prettier = {},
       prettierd = {},
     }
+
+    -- disable spell check first
 
     -- Ensure the servers and tools above are installed
     --

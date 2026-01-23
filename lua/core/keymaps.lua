@@ -94,6 +94,11 @@ vim.keymap.set('n', '<leader>ti', function()
 end, opts { desc = '[T]oggle [I]BL' })
 -- Auto-Session
 vim.keymap.set('n', '<leader>o', '<cmd> AutoSession search <CR>', opts { desc = '[O]pen recent sessions' })
+-- harper spell check Toggle
+vim.keymap.set('n', '<leader>ts', function()
+  local is_enabled = vim.lsp.is_enabled 'harper_ls'
+  vim.lsp.enable('harper_ls', not is_enabled)
+end, opts { desc = '[T]oggle [S]pell check' })
 
 -- CUSTOM
 -- save all files

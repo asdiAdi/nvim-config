@@ -21,7 +21,6 @@ require('lazy').setup {
   require 'plugins.theme',
   require 'plugins.neo-tree',
   require 'plugins.oil',
-  -- require 'plugins.bufferline', -- lualine also has bufferline
   require 'plugins.lualine',
   require 'plugins.treesitter',
   require 'plugins.telescope',
@@ -34,5 +33,7 @@ require('lazy').setup {
   require 'plugins.misc',
   require 'plugins.lint',
   require 'plugins.trouble',
-  -- require 'plugins.debug',
+  require 'plugins.codecompanion',
+  require 'plugins.typescripttools',
 }
+-- require 'plugins.bufferline', -- lualine also has bufferline
