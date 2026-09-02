@@ -2,6 +2,9 @@ return {
   {
     "folke/snacks.nvim",
     opts = {
+      notifier = {
+        timeout = 10000,
+      },
       picker = {
         sources = {
           files = {
