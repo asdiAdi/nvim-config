@@ -13,10 +13,21 @@ return {
           },
           explorer = {
             hidden = true,
-            -- ignored = true,
+            ignored = true,
           },
         },
-        exclude = { "node_modules" },
+        exclude = {
+          "node_modules",
+          "__init__.py",
+          "*.lock",
+          "__pycache__",
+          ".git",
+          ".pytest_cache",
+          ".venv",
+          ".next",
+          "out",
+          -- "dist",
+        },
       },
     },
     keys = {
