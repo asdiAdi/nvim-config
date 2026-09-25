@@ -5,7 +5,7 @@ My Neovim setup for web work. Based on [LazyVim](https://github.com/LazyVim/Lazy
 ## Install
 
 ```bash
-git clone https://github.com/anomalyco/nvim-config.git ~/.config/nvim
+git clone git@github.com:asdiAdi/nvim-config.git ~/.config/nvim
 nvim
 ```
 
